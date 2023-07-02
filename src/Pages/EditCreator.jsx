@@ -3,10 +3,6 @@ import {useParams, Link} from 'react-router-dom'
 import supabase from '../client'
 
 
-
-
-
-
 export default function EditCreator(){
     const [name, setName] = useState('');
     const [youtube, setYoutube] = useState('');
@@ -73,7 +69,7 @@ export default function EditCreator(){
                 <input type="text" onChange={(e)=>setYoutube(e.target.value)} value={youtube}/>
                 <input type="text" onChange={(e)=>setTwitter(e.target.value)} value={twitter}/>
                 <input type="text" onChange={(e)=>setInstagram(e.target.value)} value={Instagram}/>
-                <input type="text" onChange={(e)=>setName(e.target.value)} value={name}/>
+                <input type="text" onChange={(e)=>setDescription(e.target.value)} value={Description}/>
                 <input type="text" onChange={(e)=>setName(e.target.value)} value={name}/>
 
                 <button id='submit' type='submit'>Submit</button>

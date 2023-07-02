@@ -12,7 +12,7 @@ function App() {
 
   const router = createBrowserRouter(
     createRoutesFromElements(
-      <Route path="/" element={<Home />}>
+      <Route path="/" element={<Home/>}>
         <Route path="AddCreator" element={<AddCreator/>}/>
         <Route path="EditCreator/:id" element={<EditCreator/>}/>
         <Route path="ShowCreators" element={<ShowCreators/>}/>
