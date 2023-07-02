@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom"
 
 export default function ViewCreator(){
 
-    const {id} = useParams()
+    const {id} = useParams();
 
     const [oneCreator, setOneCreator] = useState(null)
 
