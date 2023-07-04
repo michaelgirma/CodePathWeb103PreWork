@@ -1,10 +1,11 @@
 import{useEffect, useState} from 'react'
 import Creator from '../Components/creators'
+import supabase from '../client';
 
 export default function Home(){
 
 
-    const [recentCreators, setRecentCreators] = useState('')
+    const [recentCreators, setRecentCreators] = useState([])
 
     useEffect(()=>{
         async function getCreator(){
@@ -22,10 +23,11 @@ export default function Home(){
             }
         }
         getCreator()
-    },[id])
+    },[])
 
     return(
         <div id='Home'>
+            <p>hihihihih</p>
             {recentCreators.map((creator)=>(
                 <div key={creator.id}>
                     <Creator creator={creator}/>
@@ -39,7 +41,14 @@ export default function Home(){
             
             )}
             
-
+            <style>{`
+            p {
+                color: white;
+            }
+            
+            
+            
+            `}</style>
         </div>
     
     )

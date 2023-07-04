@@ -1,31 +1,23 @@
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css'
-import {
-  createBrowserRouter,
-  createRoutesFromElements,
-  Route,
-  RouterProvider,
-} from "react-router-dom";
-
+import AddCreator from './pages/AddCreator';
+import Home from './pages/Home';
+import EditCreator from './pages/EditCreator'
+import ShowCreators from './pages/ShowCreators'
+import ViewCreator from './pages/ViewCreator'
 
 function App() {
-  
-
-  const router = createBrowserRouter(
-    createRoutesFromElements(
-      <Route path="/" element={<Home/>}>
-        <Route path="AddCreator" element={<AddCreator/>}/>
-        <Route path="EditCreator/:id" element={<EditCreator/>}/>
-        <Route path="ShowCreators" element={<ShowCreators/>}/>
-        <Route path="ViewCreator/:id" element={<ViewCreator/>}/>
-      </Route>
-    )
-  );
-
   return (
-    <>
-      <RouterProvider router={router}/>
-    </>
-  )
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/add-creator" element={<AddCreator />} />
+        <Route path="/edit-creator/:id" element={<EditCreator />} />
+        <Route path="/show-creators" element={<ShowCreators />} />
+        <Route path="/view-creator/:id" element={<ViewCreator />} />
+      </Routes>
+    </Router>
+  );
 }
 
-export default App
+export default App;
