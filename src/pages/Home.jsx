@@ -1,23 +1,21 @@
 import{useEffect, useState} from 'react'
-import supabase from './client'
-import Creator from './Components/creators';
+import Creator from '../Components/creators'
+import supabase from '../client';
+
+export default function Home(){
 
 
-
-
-export default function ShowCreator(){
- 
-    const [allCreators, setAllCreators] = useState([])
+    const [recentCreators, setRecentCreators] = useState([])
 
     useEffect(()=>{
         async function getCreator(){
             try{
-                const{data,error} = await supabase.from("creators").select([{id,name,youtube,twitter,instagram,description,imageUrl}]).order("id",{ascending: true})
+                const{data,error} = await supabase.from("creators").select([{id,name,youtube,twitter,instagram,description,imageUrl}]).order("id",{ascending:false}).limit(2)
                 if(error){
                     console.log(error)
                 }
                 else{
-                    setAllCreators(data)
+                    setRecentCreators(data)
                 }
             }
             catch(error){
@@ -28,8 +26,9 @@ export default function ShowCreator(){
     },[])
 
     return(
-        <div id='ShowCreator'>
-            {allCreators.map((creator)=>(
+        <div id='Home'>
+            <p>hihihihih</p>
+            {recentCreators.map((creator)=>(
                 <div key={creator.id}>
                     <Creator creator={creator}/>
                     <div id='buttonContainer'>
@@ -41,6 +40,16 @@ export default function ShowCreator(){
             )
             
             )}
+            
+            <style>{`
+            p {
+                color: white;
+            }
+            
+            
+            
+            `}</style>
         </div>
+    
     )
 }

@@ -1,7 +1,7 @@
 import { useEffect, useState} from "react"
 import { useParams } from "react-router-dom"
-import supabase from './client'
-import Creator from './Components/creators';
+import supabase from '../client'
+import Creator from '../Components/creators';
 
 
 

@@ -1,6 +1,6 @@
 import {useState, useEffect} from 'react'
 import {useParams} from 'react-router-dom'
-import supabase from './client'
+import supabase from '../client'
 
 
 export default function EditCreator(){

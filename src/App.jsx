@@ -1,16 +1,16 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css'
-import AddCreator from './AddCreator';
-import Home from './Home';
-import EditCreator from './EditCreator'
-import ShowCreators from './ShowCreators'
-import ViewCreator from './ViewCreator'
+import AddCreator from './pages/AddCreator';
+import Home from './pages/Home';
+import EditCreator from './pages/EditCreator'
+import ShowCreators from './pages/ShowCreators'
+import ViewCreator from './pages/ViewCreator'
 
 function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/home" element={<Home />} />
+        <Route path="/" element={<Home />} />
         <Route path="/add-creator" element={<AddCreator />} />
         <Route path="/edit-creator/:id" element={<EditCreator />} />
         <Route path="/show-creators" element={<ShowCreators />} />
