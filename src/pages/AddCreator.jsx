@@ -44,6 +44,7 @@ export default function AddCreator(){
                 display: flex;
                 position: relative;
                 flex-direction: column;
+               
                 
             }
 
