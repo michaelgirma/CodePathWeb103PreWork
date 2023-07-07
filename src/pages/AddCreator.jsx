@@ -16,24 +16,26 @@ export default function AddCreator(){
         window.location.href = '/';
       };
 
-    const handleSubmit = async(event) => {
-        event.preventDefault()
-        try {
-            const { data, error } = await supabase.from('Creators').insert([{ Name, Youtube, Twitter, Instagram, Description, imageUrl }]);
-      
-              console.log('data:', data);
-      
-        if (error) {
-              console.log('error', error);
-        } else {
-              console.log('Creator added successfully');
-        }
-        redirect();
-         } catch (error) {
-            console.log('error', error);
-          }
-    }
+
+
+    const handleSubmit = async (event) => {
+        event.preventDefault();
     
+        try {
+          const { data, error } = await supabase.from('creators').insert([{ Name, Youtube, Twitter, Instagram, Description, imageURL }]);
+    
+            console.log('data:', data);
+    
+          if (error) {
+            console.log('error', error);
+          } else {
+            console.log('Creator added successfully');
+          }
+          redirect();
+        } catch (error) {
+          console.log('error', error);
+        }
+      };
     
     return(
         <div id='AddCreator'>
