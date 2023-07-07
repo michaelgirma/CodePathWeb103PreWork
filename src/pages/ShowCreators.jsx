@@ -2,7 +2,10 @@ import{useEffect, useState} from 'react'
 import supabase from '../client'
 import Creator from '../Components/creators';
 import backgroundImage from '../assets/moving-globe.gif';
-
+import { Link } from 'react-router-dom';
+import { HiOutlinePencilAlt } from 'react-icons/hi';
+import { AiOutlineInfoCircle } from 'react-icons/ai';
+import { AiOutlineHome } from 'react-icons/ai';
 
 
 
@@ -40,22 +43,32 @@ export default function ShowCreator(){
                     </div>
 
                     <div id="ShowHomeButtonContainer">
-                        <a id='ShowHomeButton' href='/'>Home</a>
+                        <Link to='/'>
+                            <button id='ShowHomeButton'><AiOutlineHome/></button>
+                        </Link>
+                        {/* <a id='ShowHomeButton' href='/'>Home</a> */}
                     </div>
                 </div>
+                <div id="CreatorMapContainer">
+                    {allCreators.map((creator)=>(
+                    <div key={creator.id}>
+                        <Creator creator={creator}/>
+                        <div id='buttonContainer'>
+                            <Link to={`/ViewCreator/${creator.id}`}>
+                                <button id='ViewCreatorButton'><AiOutlineInfoCircle/></button>
+                            </Link>
+                            <Link to={`/EditCreator/${creator.id}`}>
+                                <button id='EditHomeButton'><HiOutlinePencilAlt/></button>
+                            </Link>
+                        </div>
+                        
+                    </div>
+                    )
+                
+                    )}
+                </div> 
             </div>
-            {allCreators.map((creator)=>(
-                <div key={creator.id}>
-                    <Creator creator={creator}/>
-                    <div id='buttonContainer'>
-                       <button href='EditCreator/${creator.id}'></button>
-                       <button href='ViewCreator/${creator.id}'></button>
-                    </div>
-                    
-                </div>
-            )
-            
-            )}
+
             <style>{`
                 #ShowCreator{
                     display: flex;
@@ -114,14 +127,47 @@ export default function ShowCreator(){
                 #ShowHomeButton{
                     display: flex;
                     position: relative;
-                    width: 250px;
-                    height: 30px;
-                    justify-content: center;
+                    font-size: 2rem;
+                    background-color: transparent;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                #CreatorMapContainer{
+                    display: flex;
+                    position: relative;
+                    flex-direction: column;
+                    justify: content: center;
                     align-items: center;
-                    background-color: white;
-                    border-radius: 18px;
-                    text-decoration: none;
-                    color: black;
+                    overflow-y: auto; 
+                    max-height: 500px;
+                    border: 1px solid red;
+                }
+                #buttonContainer{
+                    display: flex;
+                    position: relative;
+                    flex-direction: row;
+                    justify-content: space-evenly;
+                    align-items: center;
+                    padding-right: 20px;
+                }
+                #EditHomeButton{
+                    display: flex;
+                    position: relative;
+                    font-size: 2rem;
+                    background-color: transparent;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                #ViewCreatorButton{
+                    display: flex;
+                    position: relative;
+                    font-size: 2rem;
+                    background-color: transparent;
+                    color: white;
+                    border: none;
+                    cursor: pointer; 
                 }
 
             `}</style>

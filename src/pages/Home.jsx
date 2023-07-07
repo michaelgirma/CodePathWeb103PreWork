@@ -3,6 +3,8 @@ import Creator from '../Components/creators'
 import supabase from '../client';
 import backgroundImage from '../assets/moving-globe.gif';
 import { Link } from 'react-router-dom';
+import { HiOutlinePencilAlt } from 'react-icons/hi';
+import { AiOutlineInfoCircle } from 'react-icons/ai';
 
 export default function Home(){
 
@@ -40,20 +42,27 @@ export default function Home(){
                         <Link id='AddButton' to='/AddCreator'>Add A Creator</Link>
                     </div>
                 </div>
-            </div>
 
-            {recentCreators.map((creator)=>(
-                <div key={creator.id}>
-                    <Creator creator={creator}/>
-                    <div id='buttonContainer'>
-                       <Link id='EditHomeButton' to={`/EditCreator/${creator.id}`}></Link>
-                       <Link id='ViewCreatorButton' to={`/ViewCreator/${creator.id}`}></Link>
-                    </div>
+                <div id="CreatorScreenContainer">
+                    {recentCreators.map((creator)=>(
+                        <div key={creator.id}>
+                            <Creator creator={creator}/>
+                            <div id='buttonContainer'>
+                                <Link to={`/ViewCreator/${creator.id}`}>
+                                    <button id='ViewCreatorButton'><AiOutlineInfoCircle/></button>
+                                </Link>
+                                <Link to={`/EditCreator/${creator.id}`}>
+                                    <button id='EditHomeButton'><HiOutlinePencilAlt/></button>
+                                </Link>
+
+                            </div>
+                            
+                        </div>
+                    )
                     
+                    )}
                 </div>
-            )
-            
-            )}
+            </div>
             
             <style>{`
             #Home{
@@ -143,28 +152,39 @@ export default function Home(){
             #EditHomeButton{
                 display: flex;
                 position: relative;
-                width: 300px;
-                height: 60px;
-                justify-content: center;
-                align-items: center;
-                background-color: white;
-                border-radius: 18px;
-                margin-left: 25px;
-                text-decoration: none;
-                color: black;
+                font-size: 2rem;
+                background-color: transparent;
+                color: white;
+                border: none;
+                cursor: pointer;
             }
             #ViewCreatorButton{
                 display: flex;
                 position: relative;
-                width: 300px;
-                height: 60px;
-                justify-content: center;
+                font-size: 2rem;
+                background-color: transparent;
+                color: white;
+                border: none;
+                cursor: pointer; 
+            }
+            #CreatorScreenContainer{
+                display: flex;
+                position: relative;
+                width: 99%;
+                margin-top: 160px; 
+                padding-bottom: 50px;
+                padding-top: 50px;
+                justify-content: space-evenly;
                 align-items: center;
-                background-color: white;
-                border-radius: 18px;
-                margin-left: 25px;
-                text-decoration: none;
-                color: black;
+                flex-direction: row;
+            }
+            #buttonContainer{
+                display: flex;
+                position: relative;
+                flex-direction: row;
+                justify-content: space-evenly;
+                align-items: center;
+                padding-right: 20px;
             }
             `}</style>
         </div>
