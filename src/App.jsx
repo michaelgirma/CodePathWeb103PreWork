@@ -11,10 +11,10 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/add-creator" element={<AddCreator />} />
-        <Route path="/edit-creator/:id" element={<EditCreator />} />
-        <Route path="/show-creators" element={<ShowCreators />} />
-        <Route path="/view-creator/:id" element={<ViewCreator />} />
+        <Route path="/AddCreator" element={<AddCreator />} />
+        <Route path="/EditCreator/:id" element={<EditCreator />} />
+        <Route path="/ShowCreators" element={<ShowCreators />} />
+        <Route path="/ViewCreator/:id" element={<ViewCreator />} />
       </Routes>
     </Router>
   );
