@@ -14,7 +14,7 @@ export default function ViewCreator(){
     useEffect(()=>{
         async function getCreator(){
             try{
-                const{data,error} = await supabase.from("creators").select([{id,name,youtube,twitter,instagram,description,imageUrl}]).eq("id",id).single()
+                const{data,error} = await supabase.from("Creators").select('id,Name,Youtube,Twitter,Instagram,Description,imageURL').eq("id",id).single()
                 if(error){
                     console.log(error)
                 }
@@ -29,10 +29,14 @@ export default function ViewCreator(){
         getCreator()
     },[id])
 
+    if (!oneCreator) {
+        return <div>Loading...</div>;
+      }
+
     return(
         <div id="ViewCreator">
             <div>
-                <Creator creator={oneCreator}/>
+                <Creator creator={creator}/>
             </div>
         </div>
     )
