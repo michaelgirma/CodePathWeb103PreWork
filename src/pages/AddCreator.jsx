@@ -1,7 +1,8 @@
 import {useState} from 'react'
 import supabase from '../client'
 import backgroundImage from '../assets/moving-globe.gif';
-
+import { AiOutlineHome } from 'react-icons/ai';
+import { Link } from 'react-router-dom';
 
 export default function AddCreator(){
 
@@ -10,7 +11,7 @@ export default function AddCreator(){
     const [Twitter, setTwitter] = useState('');
     const [Instagram, setInstagram] = useState('');
     const [Description, setDescription] = useState('');
-    const [ImageUrl, setImageUrl] = useState('');
+    const [imageURL, setImageUrl] = useState('');
 
     const redirect = () => {
         window.location.href = '/';
@@ -22,7 +23,7 @@ export default function AddCreator(){
         event.preventDefault();
     
         try {
-          const { data, error } = await supabase.from('creators').insert([{ Name, Youtube, Twitter, Instagram, Description, imageURL }]);
+          const { data, error } = await supabase.from('Creators').insert([{ Name, Youtube, Twitter, Instagram, Description, imageURL }]);
     
             console.log('data:', data);
     
@@ -31,7 +32,7 @@ export default function AddCreator(){
           } else {
             console.log('Creator added successfully');
           }
-          redirect();
+          
         } catch (error) {
           console.log('error', error);
         }
@@ -41,12 +42,14 @@ export default function AddCreator(){
         <div id='AddCreator'>
             <div id="AddCreatorContainer">
                 <div id="HomeBackgroundContainer">
-                    <img class="global" id='AddCreatorBackgroundImage' src={backgroundImage} />
+                    <img id='AddCreatorBackgroundImage' src={backgroundImage} />
                     <div id="AddHeaderContainer">
                         <h1 id="AddHeader">Add Creator</h1>
                     </div>
                     <div id="AddHomeContainer">
-                        <a id='HomeButton' href='/'>Home</a>
+                        <Link to='/'>
+                            <button id='HomeButton'><AiOutlineHome/></button>
+                        </Link>
                     </div>
                 </div>
                 <div id="AddListFormContainer">
@@ -54,44 +57,46 @@ export default function AddCreator(){
                         <div id="AddFormInputContainer">
 
                                 <div id="NameHeaderContainer">
-                                    <p class="inputHeader">Name</p>
-                                    <p class='inputDescription'>Write your creators Name</p>
+                                    <p className="inputHeader">Name</p>
+                                    <p className='inputDescription'>Write your creators Name</p>
                                 </div>
                             <input type="text" id='AddName' placeholder = "Name"  onChange={(e)=>setName(e.target.value)} value={Name} required/>
 
                                 <div id="ImageHeaderContainer">
-                                    <p class="inputHeader">Image Link</p>
-                                    <p class='inputDescription'>Provide a link that shows what your creator looks like</p>
+                                    <p className="inputHeader">Image Link</p>
+                                    <p className='inputDescription'>Provide a link that shows what your creator looks like</p>
                                 </div>
-                            <input type="text" id='AddImageUrl' placeholder = "ImageUrl" onChange={(e)=>setImageUrl(e.target.value)} value={ImageUrl} required/>
+                            <input type="text" id='AddImageUrl' placeholder = "ImageUrl" onChange={(e)=>setImageUrl(e.target.value)} value={imageURL} required/>
 
                                 <div id="DescriptionHeaderContainer">
-                                    <p class="inputHeader">Description</p>
-                                    <p class='inputDescription'>Provide a short description about your creator</p>
+                                    <p className="inputHeader">Description</p>
+                                    <p className='inputDescription'>Provide a short description about your creator</p>
                                 </div>
                             <input type="text" id='AddDescription' placeholder = "Description" onChange={(e)=>setDescription(e.target.value)} value={Description} required/>
 
                                 <div id="YoutubeHeaderContainer">
-                                    <p class="inputHeader">Youtube</p>
-                                    <p class='inputDescription'>If applicable, provide a youtube link that belongs to your creator</p>
+                                    <p className="inputHeader">Youtube</p>
+                                    <p className='inputDescription'>If applicable, provide a youtube link that belongs to your creator</p>
                                 </div>
                             <input type="text" id='AddYoutube' placeholder = "Youtube" onChange={(e)=>setYoutube(e.target.value)} value={Youtube} />
 
                                 <div id="TwitterHeaderContainer">
-                                    <p class="inputHeader">Twitter</p>
-                                    <p class='inputDescription'>If applicable, provide a twitter link that belongs to your creator</p>
+                                    <p className="inputHeader">Twitter</p>
+                                    <p className='inputDescription'>If applicable, provide a twitter link that belongs to your creator</p>
                                 </div>
                             <input type="text" id='AddTwitter' placeholder = "Twitter" onChange={(e)=>setTwitter(e.target.value)} value={Twitter} />
 
                                 <div id="InstagramHeaderContainer">
-                                    <p class="inputHeader">Instagram</p>
-                                    <p class='inputDescription'>If applicable, provide a instagram link that belongs to your creator</p>
+                                    <p className="inputHeader">Instagram</p>
+                                    <p className='inputDescription'>If applicable, provide a instagram link that belongs to your creator</p>
                                 </div>
                             <input type="text" id='AddInstagram' placeholder = "Instagram" onChange={(e)=>setInstagram(e.target.value)} value={Instagram} />
                         </div>
 
                         <div id="AddCreatorFormButtonContainer">
-                            <button id='submit' type='submit'>Submit</button>
+                            
+                                <button id='submit' type='submit' onClick={redirect}> Submit </button>
+                            
                         </div>
                     </form>
                 </div>
@@ -137,11 +142,12 @@ export default function AddCreator(){
                 position: relative;
                 width: 100%;
                 height: 45%;
-                margin-top: 70px;
+                margin-top: 80px;
                 margin-bottom: 25px;
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
+                margin-bottom: 6px;
             }
             #AddHeader{
                 display: flex;
@@ -157,22 +163,23 @@ export default function AddCreator(){
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
-                margin-top: 40px;
+                margin-top: 7%;
+                padding-left: 3%;
             }
             #HomeButton{
                 display: flex;
                 position: relative;
-                width: 300px;
-                height: 60px;
-                justify-content: center;
-                align-items: center;
-                background-color: white;
-                border-radius: 18px;
-                margin-right: 25px;
-                margin-top: 45px;
-                margin-left: 20px;
-                text-decoration: none;
-                color: black; 
+                font-size: 3rem;
+                background-color: transparent;
+                color: white;
+                border: none;
+                cursor: pointer;
+                padding-right: 50px;
+            }
+            #HomeButton:hover {
+                opacity: 0.9;
+                transform: scale(1.1);
+                transition: transform 0.2s ease-in-out;
             }
             #AddListFormContainer{
                 display: flex;
@@ -254,6 +261,15 @@ export default function AddCreator(){
                 color: black; 
             }
 
+            @media (max-width: 700px){
+                #AddHeader{
+                    font-size: 80px;
+                }
+
+                #AddFormInputContainer{
+                    padding-right: 35px;
+                }
+            }
 
 
                 `}

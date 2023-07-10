@@ -3,15 +3,15 @@ import {AiOutlineYoutube, AiOutlineInstagram} from 'react-icons/ai';
 import {FiTwitter} from 'react-icons/fi';
 
 export default function Creator({creator}){
-    const {Name,Description,Youtube,Twitter,Instagram,ImageUrl} = creator
+    const {Name,Description,Youtube,Twitter,Instagram,imageURL} = creator
 
     return(
       <>
         <div id="creator">
 
             <div id='ImageContainer'>
-                <img id='BlurredImage' src={ImageUrl} />
-                <img id='Image' src={ImageUrl} />
+                <img id='BlurredImage' src={imageURL} />
+                <img id='Image' src={imageURL} />
             </div>
 
             <div id="TextContainer">
@@ -36,12 +36,13 @@ export default function Creator({creator}){
                 display: flex;
                 position: relative;
                 width: 650px;
-                height: 325px;
+                height: 350px;
                 margin-top: 3%;
                 flex-direction: row;
                 align-items: center;
                 justify-content: center;
-                background-color: #010048;
+                background-color: black;
+                border-radius: 10px;
                 border: 1px solid white;
             }
         
@@ -82,6 +83,8 @@ export default function Creator({creator}){
                 width: 62%;
                 height: 100%;
                 padding-right: 5px;
+                overflow-y: scroll;
+                
             }
 
             #NameContainer{
@@ -102,7 +105,7 @@ export default function Creator({creator}){
                 width: 100%;
                 justify-content: center;
                 align-items: center;
-                font-family: 'InterRegular';
+                font-family: 'InterSemi';
                 font-size: 14px;
                 margin-top: 0px;
                 padding-top: 0px;
@@ -114,6 +117,15 @@ export default function Creator({creator}){
                 flex-direction: column;
                 padding-left: 5px;
                 overflow-wrap: break-word;
+            }
+            #link{
+                color: red;
+            }
+
+            @media (max-width: 700px){
+                #creator{
+                    width: 480px;
+                }
             }
         `}</style>
     </>)
@@ -127,6 +139,6 @@ Creator.propTypes = {
         Twitter: PropTypes.string.isRequired,
         Instagram: PropTypes.string.isRequired,
         Description: PropTypes.string.isRequired,
-        ImageUrl: PropTypes.string.isRequired,
+        imageURL: PropTypes.string.isRequired,
     }).isRequired
 }
