@@ -46,7 +46,6 @@ export default function ShowCreator(){
                         <Link to='/'>
                             <button id='ShowHomeButton'><AiOutlineHome/></button>
                         </Link>
-                        {/* <a id='ShowHomeButton' href='/'>Home</a> */}
                     </div>
                 </div>
                 <div id="CreatorMapContainer">
@@ -141,7 +140,6 @@ export default function ShowCreator(){
                     align-items: center;
                     overflow-y: auto; 
                     max-height: 500px;
-                    border: 1px solid red;
                 }
                 #buttonContainer{
                     display: flex;
@@ -170,6 +168,11 @@ export default function ShowCreator(){
                     cursor: pointer; 
                 }
 
+                @media (max-width: 700px){    
+                    #ShowHeader{
+                        font-size: 70px;
+                    }
+                }
             `}</style>
         </div>
     )

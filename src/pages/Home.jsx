@@ -10,6 +10,7 @@ export default function Home(){
 
 
     const [recentCreators, setRecentCreators] = useState([])
+    
 
     useEffect(()=>{
         async function getCreator(){
@@ -33,7 +34,7 @@ export default function Home(){
         <div id='Home'>
             <div id="HomeContainer">
                 <div id="HomeBackgroundContainer">
-                    <img class="global"  id='HomeBackgroundImage' src={backgroundImage} />
+                    <img id='HomeBackgroundImage' src={backgroundImage} />
                     <div id="HeaderContainer">
                         <h1 id="Header">CreatorVerse</h1>
                     </div>
@@ -149,6 +150,16 @@ export default function Home(){
                 text-decoration: none;
                 color: black;
             }
+            #ShowButton:hover {
+                opacity: 0.9;
+                transform: scale(1.1);
+                transition: transform 0.2s ease-in-out;
+            }
+            #AddButton:hover {
+                opacity: 0.9;
+                transform: scale(1.1);
+                transition: transform 0.2s ease-in-out;
+            }
             #EditHomeButton{
                 display: flex;
                 position: relative;
@@ -166,6 +177,16 @@ export default function Home(){
                 color: white;
                 border: none;
                 cursor: pointer; 
+            }
+            #ViewCreatorButton:hover {
+                opacity: 0.9;
+                transform: scale(1.1);
+                transition: transform 0.2s ease-in-out;
+            }
+            #EditHomeButton:hover {
+                opacity: 0.9;
+                transform: scale(1.1);
+                transition: transform 0.2s ease-in-out;
             }
             #CreatorScreenContainer{
                 display: flex;
@@ -185,6 +206,23 @@ export default function Home(){
                 justify-content: space-evenly;
                 align-items: center;
                 padding-right: 20px;
+            }
+
+            @media (max-width: 1300px){
+                #HeaderContainer{
+                    width: 98%;
+                }
+                #Header{
+                    font-size: 80px;
+                    font-family: 'InterBold';
+                }
+                #NavbarContainer{
+                    margin-top: 80px;
+                }
+                #CreatorScreenContainer{
+                    flex-direction: column;
+                    height: 600px;
+                }
             }
             `}</style>
         </div>

@@ -9,8 +9,3 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   </React.StrictMode>
 )
 
-ReactDOM.createRoot(document.getElementById('home')).render(
-  <React.StrictMode>
-    <Home />
-  </React.StrictMode>
-)
