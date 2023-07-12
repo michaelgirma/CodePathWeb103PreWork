@@ -1,7 +1,6 @@
 import{useEffect, useState} from 'react'
 import Creator from '../Components/creators'
 import supabase from '../client';
-import backgroundImage from '../assets/moving-globe.gif';
 import { Link } from 'react-router-dom';
 import { HiOutlinePencilAlt } from 'react-icons/hi';
 import { AiOutlineInfoCircle } from 'react-icons/ai';
@@ -34,7 +33,7 @@ export default function Home(){
         <div id='Home'>
             <div id="HomeContainer">
                 <div id="HomeBackgroundContainer">
-                    <img id='HomeBackgroundImage' src={backgroundImage} />
+                    <img id='HomeBackgroundImage' src="https://i.imgur.com/F4ztSGV.gif?noredirect"/>
                     <div id="HeaderContainer">
                         <h1 id="Header">CreatorVerse</h1>
                     </div>
@@ -69,14 +68,14 @@ export default function Home(){
             #Home{
                 display:flex;
                 position: relative;
-                width: 100%;
+                width: 100vw;
                 height: 100%;
                 flex-direction: column;                
             }
             #HomeContainer{
                 display: flex;
                 position: relative;
-                width: 100%;
+                width: 99%;
                 height: 100%;
                 flex-direction: column;
                 justify-content: center;
@@ -191,11 +190,12 @@ export default function Home(){
             #CreatorScreenContainer{
                 display: flex;
                 position: relative;
-                width: 99%;
+                width: 100%;
                 margin-top: 160px; 
                 padding-bottom: 50px;
                 padding-top: 50px;
-                justify-content: space-evenly;
+                gap: 15px;
+                justify-content: center;
                 align-items: center;
                 flex-direction: row;
             }
@@ -209,11 +209,12 @@ export default function Home(){
             }
 
             @media (max-width: 1300px){
+                
                 #HeaderContainer{
                     width: 98%;
                 }
                 #Header{
-                    font-size: 80px;
+                    font-size: 50px;
                     font-family: 'InterBold';
                 }
                 #NavbarContainer{
@@ -222,6 +223,14 @@ export default function Home(){
                 #CreatorScreenContainer{
                     flex-direction: column;
                     height: 600px;
+                }
+                #ShowButton{
+                    width: 150px;
+                    margin-right: 5px;
+                }
+                #AddButton{
+                    width: 150px;
+                    margin-left: 5px;
                 }
             }
             `}</style>

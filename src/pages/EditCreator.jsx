@@ -1,7 +1,6 @@
 import {useState, useEffect,} from 'react'
 import {useParams} from 'react-router-dom'
 import supabase from '../client'
-import backgroundImage from '../assets/moving-globe.gif';
 import { Link } from 'react-router-dom';
 import { AiOutlineHome } from 'react-icons/ai';
 
@@ -93,7 +92,7 @@ export default function EditCreator(){
         <div id='EditCreator'>
             <div id="EditCreatorContainer">
                 <div id="EditCreatorBackgroundContainer">
-                    <img  id='EditBackgroundImage' src={backgroundImage} />
+                    <img  id='EditBackgroundImage' src="https://i.imgur.com/F4ztSGV.gif?noredirect" />
                     <div id="EditHeaderContainer">
                         <h1 id="EditHeader">Edit Creator</h1>
                     </div>

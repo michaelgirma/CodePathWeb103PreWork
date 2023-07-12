@@ -124,7 +124,7 @@ export default function Creator({creator}){
 
             @media (max-width: 700px){
                 #creator{
-                    width: 480px;
+                    width: 350px;
                 }
             }
         `}</style>

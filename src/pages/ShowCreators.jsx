@@ -1,7 +1,6 @@
 import{useEffect, useState} from 'react'
 import supabase from '../client'
 import Creator from '../Components/creators';
-import backgroundImage from '../assets/moving-globe.gif';
 import { Link } from 'react-router-dom';
 import { HiOutlinePencilAlt } from 'react-icons/hi';
 import { AiOutlineInfoCircle } from 'react-icons/ai';
@@ -36,7 +35,7 @@ export default function ShowCreator(){
         <div id='ShowCreator'>
             <div id="ShowCreatorContainer">
                 <div id='ShowBackgroundContainer'>
-                        <img id='ShowCreatorBackgroundImage' src={backgroundImage} />
+                        <img id='ShowCreatorBackgroundImage' src="https://i.imgur.com/F4ztSGV.gif?noredirect" />
                     
                     <div id="ShowContainerHeader">
                         <h1 id="ShowHeader">All Creators</h1>

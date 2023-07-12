@@ -2,7 +2,6 @@ import { useEffect, useState} from "react"
 import { useParams } from "react-router-dom"
 import supabase from '../client'
 import Creator from '../Components/creators';
-import backgroundImage from '../assets/moving-globe.gif';
 import { Link } from 'react-router-dom';
 import { AiOutlineHome } from 'react-icons/ai';
 
@@ -40,7 +39,7 @@ export default function ViewCreator(){
         <div id='ViewCreator'>
             <div id='ViewCreatorContainer'>
                 <div id='ViewCreatorBackgroundContainer'>
-                    <img id='ViewBackgroundImage' src={backgroundImage} />
+                    <img id='ViewBackgroundImage' src="https://i.imgur.com/F4ztSGV.gif?noredirect" />
 
                     <div id='ViewCreatorHeaderContainer'>
                     <p id='ViewCreatorHeader'>View Creator</p>
