@@ -3,10 +3,15 @@ body{
   position: relative;
   flex-direction: column;
   background-color: black;
-  margin: 0px 2px 0px 0px;
+  margin: 0px 0px 0px 0px;
   padding: 0px;
   font-family: 'Inter';
   color: white;
+}
+
+#root{
+  margin: 0px;
+  padding: 0px;
 }
 
 @font-face {

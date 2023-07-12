@@ -1,6 +1,5 @@
 import {useState} from 'react'
 import supabase from '../client'
-import backgroundImage from '../assets/moving-globe.gif';
 import { AiOutlineHome } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 
@@ -42,7 +41,7 @@ export default function AddCreator(){
         <div id='AddCreator'>
             <div id="AddCreatorContainer">
                 <div id="HomeBackgroundContainer">
-                    <img id='AddCreatorBackgroundImage' src={backgroundImage} />
+                    <img id='AddCreatorBackgroundImage' src="https://i.imgur.com/F4ztSGV.gif?noredirect"/>
                     <div id="AddHeaderContainer">
                         <h1 id="AddHeader">Add Creator</h1>
                     </div>
