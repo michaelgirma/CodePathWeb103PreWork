@@ -35,6 +35,8 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented required features:
 
+https://github.com/michaelgirma/CodePathWeb103PreWork/assets/130878160/a2d7abec-da55-4ffa-a1ef-daf884f07b9e
+
 👉🏿<img src='https://media.giphy.com/media/8XCbccQNtEPmne2ykU/giphy.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with Giphy  
